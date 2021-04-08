@@ -63,6 +63,20 @@ public class Board : MonoBehaviour
         }
     }
 
+    public bool isSlotSelected(GameObject piece)
+    {
+        foreach (GameObject o in selected)
+        {
+            if (o == piece)
+            {
+                Debug.Log("yasser");
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void destroyPiece(GameObject o)
     {
         Destroy(o);
