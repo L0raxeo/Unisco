@@ -3,14 +3,9 @@
 public class BackButton : MonoBehaviour
 {
 
-    void Start()
+    public void OnClick()
     {
-        
-    }
 
-    void Update()
-    {
-        
     }
 
 }
