@@ -49,25 +49,45 @@ public class Finger : MonoBehaviour
         if (!levelManager.inGame || collision.tag != "Number" || collision.GetComponent<Animator>().enabled || collision.transform.localScale.x <= 0.75f)
             return;
 
+        var piecePos = collision.transform.position;
+
         if (levelManager.board.selected[1] != null)
         {
-            if (levelManager.board.selected[0].transform.position.x == levelManager.board.selected[1].transform.position.x && collision.transform.position.x != levelManager.board.selected[1].transform.position.x)
-            {
-                Debug.Log(collision.transform.position.x);
-                Debug.Log(levelManager.board.selected[1].transform.position.x);
+            if (levelManager.board.selected[0].transform.position.x == levelManager.board.selected[1].transform.position.x && piecePos.x != levelManager.board.selected[1].transform.position.x)
                 return;
+            else if (levelManager.board.selected[0].transform.position.y == levelManager.board.selected[1].transform.position.y && piecePos.y != levelManager.board.selected[1].transform.position.y)
+                return;
+
+            if (levelManager.board.selected[0].transform.position.x > levelManager.board.selected[1].transform.position.x)
+            {
+                if (piecePos.x > levelManager.board.selected[1].transform.position.x)
+                {
+                    return;
+                }
             }
-            else if (levelManager.board.selected[0].transform.position.y == levelManager.board.selected[1].transform.position.y && collision.transform.position.y != levelManager.board.selected[1].transform.position.y)
+            else if (levelManager.board.selected[0].transform.position.x < levelManager.board.selected[1].transform.position.x)
             {
-                return;
+                if (piecePos.x < levelManager.board.selected[1].transform.position.x)
+                {
+                    return;
+                }
             }
-            else if (levelManager.board.isSlotSelected(collision.gameObject))
+
+            if (levelManager.board.selected[0].transform.position.y > levelManager.board.selected[1].transform.position.y)
             {
-                return;
+                if (piecePos.y > levelManager.board.selected[1].transform.position.y)
+                {
+                    return;
+                }
+            }
+            else if (levelManager.board.selected[0].transform.position.y < levelManager.board.selected[1].transform.position.y)
+            {
+                if (piecePos.y < levelManager.board.selected[1].transform.position.y)
+                {
+                    return;
+                }
             }
         }
-
-        var piecePos = collision.transform.position;
 
         levelManager.addSelectedPiece(collision.gameObject, levelManager.board.getSlotID(collision.gameObject.transform.position));
     }

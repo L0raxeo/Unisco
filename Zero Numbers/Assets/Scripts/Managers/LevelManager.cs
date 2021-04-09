@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public Level level;
     public Board board;
     public MoveManager turns;
+    public ParticleSystem crumbleFX;
 
     public bool inGame = false;
 
@@ -78,6 +79,7 @@ public class LevelManager : MonoBehaviour
 
             var emptyCoordinates = o.transform.position;
             board.destroyPiece(o);
+            Instantiate(crumbleFX, new Vector3(o.transform.position.x, o.transform.position.y, -1f), Quaternion.Euler(0f, 0f, 45f));
             board.fillSlot(emptyCoordinates);
         }
     }

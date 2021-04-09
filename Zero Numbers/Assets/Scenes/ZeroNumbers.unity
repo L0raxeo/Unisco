@@ -399,7 +399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 204.8, y: 444.20004}
+  m_AnchoredPosition: {x: 205, y: 445}
   m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156810394
@@ -611,6 +611,8 @@ MonoBehaviour:
   level: {fileID: 2145404539}
   board: {fileID: 1045092144}
   turns: {fileID: 2068700296}
+  crumbleFX: {fileID: 7780858923322744268, guid: 0241f66c61dddd84095b6765a498fda7,
+    type: 3}
   inGame: 0
 --- !u!1 &298092602
 GameObject:
@@ -1252,7 +1254,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.9382879, b: 0.75, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.8962264, b: 0.6367924, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2359,7 +2361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124.7, y: 359.8}
+  m_AnchoredPosition: {x: 124.7, y: 360}
   m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221524466
@@ -3712,7 +3714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205, y: 359.8}
+  m_AnchoredPosition: {x: 205, y: 360}
   m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789279022
