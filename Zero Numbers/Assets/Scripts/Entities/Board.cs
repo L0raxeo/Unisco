@@ -8,6 +8,8 @@ public class Board : MonoBehaviour
     public GameObject[] pieces;
     public GameObject[] selected;
 
+    public GameObject crumbleFX;
+
     [HideInInspector]
     public int currentIndex = 0;
 
@@ -73,13 +75,14 @@ public class Board : MonoBehaviour
         foreach(GameObject o in GameObject.FindGameObjectsWithTag("Number"))
         {
             Destroy(o);
+            Instantiate(crumbleFX, new Vector3(o.transform.position.x, o.transform.position.y, -1f), Quaternion.Euler(0f, 0f, 45f));
         }
     }
 
     public void addToSelected(GameObject piece)
     {
-            selected[currentIndex] = piece;
-            currentIndex++;
+        selected[currentIndex] = piece;
+        currentIndex++;
     }
 
     public int getNumberOfSelected()

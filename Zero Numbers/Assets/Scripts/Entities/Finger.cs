@@ -51,6 +51,12 @@ public class Finger : MonoBehaviour
 
         var piecePos = collision.transform.position;
 
+        if (levelManager.board.selected[0] != null)
+        {
+            if (levelManager.board.selected[0].transform.position.x != piecePos.x && levelManager.board.selected[0].transform.position.y != piecePos.y)
+                return;
+        }
+
         if (levelManager.board.selected[1] != null)
         {
             if (levelManager.board.selected[0].transform.position.x == levelManager.board.selected[1].transform.position.x && piecePos.x != levelManager.board.selected[1].transform.position.x)
@@ -61,31 +67,23 @@ public class Finger : MonoBehaviour
             if (levelManager.board.selected[0].transform.position.x > levelManager.board.selected[1].transform.position.x)
             {
                 if (piecePos.x > levelManager.board.selected[1].transform.position.x)
-                {
                     return;
-                }
             }
             else if (levelManager.board.selected[0].transform.position.x < levelManager.board.selected[1].transform.position.x)
             {
                 if (piecePos.x < levelManager.board.selected[1].transform.position.x)
-                {
                     return;
-                }
             }
 
             if (levelManager.board.selected[0].transform.position.y > levelManager.board.selected[1].transform.position.y)
             {
                 if (piecePos.y > levelManager.board.selected[1].transform.position.y)
-                {
                     return;
-                }
             }
             else if (levelManager.board.selected[0].transform.position.y < levelManager.board.selected[1].transform.position.y)
             {
                 if (piecePos.y < levelManager.board.selected[1].transform.position.y)
-                {
                     return;
-                }
             }
         }
 

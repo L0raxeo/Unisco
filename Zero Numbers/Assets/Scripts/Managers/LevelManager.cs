@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     public void StartGame()
     {
         InitializeBoard();
-        turns.setTurns(1);
+        turns.setTurns(2);
         inGame = true;
     }
 
