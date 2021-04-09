@@ -9,19 +9,24 @@ public class LevelManager : MonoBehaviour
     public Board board;
     public MoveManager turns;
     public ParticleSystem crumbleFX;
+    public ShadeController shade;
+    public GameObject gameOverUI;
 
     public bool inGame = false;
 
     public void StartGame()
     {
         InitializeBoard();
+        turns.setTurns(1);
         inGame = true;
     }
 
     public void EndGame()
     {
-
         inGame = false;
+
+        gameOverUI.SetActive(true);
+        shade.ToSolid();
     }
 
     public void EndTurn()
