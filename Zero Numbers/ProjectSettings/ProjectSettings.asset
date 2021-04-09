@@ -632,10 +632,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: b775baac-26f1-48fa-91a2-8d4f11da785a
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Zero Numbers
+  organizationId: l0raxeo_unity
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
