@@ -14,7 +14,10 @@ public class LevelManager : MonoBehaviour
     public GameObject gameOverUI;
     public Button addMovesButton;
 
+    [HideInInspector]
     public bool inGame = false;
+    [HideInInspector]
+    public bool watchedAd = false;
 
     public void StartGame()
     {
@@ -23,6 +26,7 @@ public class LevelManager : MonoBehaviour
         addMovesButton.interactable = true;
         GameObject.Find("Replace Pieces").GetComponent<Button>().interactable = true;
         inGame = true;
+        watchedAd = false;
     }
 
     public void EndGame()
@@ -33,6 +37,15 @@ public class LevelManager : MonoBehaviour
         GameObject.Find("Replace Pieces").GetComponent<Button>().interactable = false;
         gameOverUI.SetActive(true);
         shade.ToSolid();
+
+        if (watchedAd)
+        {
+            GameObject.Find("Watch Ad").GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            GameObject.Find("Watch Ad").GetComponent<Button>().interactable = true;
+        }
     }
 
     public void EndTurn()
