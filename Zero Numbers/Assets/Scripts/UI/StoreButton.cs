@@ -7,6 +7,7 @@ public class StoreButton : MonoBehaviour
 
     public void OnClick()
     {
+        FindObjectOfType<AudioManager>().Play("Blip_SFX");
         GameObject.Find("Shade").GetComponent<Animator>().SetBool("isSolid", true);
         storeUI.SetActive(true);
     }

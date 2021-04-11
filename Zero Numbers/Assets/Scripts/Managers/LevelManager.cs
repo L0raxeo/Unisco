@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public ParticleSystem crumbleFX;
     public ShadeController shade;
     public GameObject gameOverUI;
+    public Button addMovesButton;
 
     public bool inGame = false;
 
@@ -18,6 +20,8 @@ public class LevelManager : MonoBehaviour
     {
         InitializeBoard();
         turns.setTurns(50);
+        addMovesButton.interactable = true;
+        GameObject.Find("Replace Pieces").GetComponent<Button>().interactable = true;
         inGame = true;
     }
 
@@ -25,6 +29,8 @@ public class LevelManager : MonoBehaviour
     {
         inGame = false;
 
+        addMovesButton.interactable = false;
+        GameObject.Find("Replace Pieces").GetComponent<Button>().interactable = false;
         gameOverUI.SetActive(true);
         shade.ToSolid();
     }
@@ -54,6 +60,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             m_camera.GetComponent<Animator>().SetBool("isShaking", true);
+            FindObjectOfType<AudioManager>().Play("Invalid_SFX");
         }
 
         level.isMatchValid = false;
@@ -77,6 +84,14 @@ public class LevelManager : MonoBehaviour
 
     void MatchValid(GameObject[] selected)
     {
+        FindObjectOfType<AudioManager>().Play("Valid_SFX");
+
+        if (board.getNumberOfSelected() >= 4)
+        {
+            Debug.Log("hi");
+            turns.addTurns(4);
+        }
+
         foreach (GameObject o in selected)
         {
             if (o == null)
@@ -94,6 +109,7 @@ public class LevelManager : MonoBehaviour
         number.transform.localScale -= new Vector3(0.25f, 0.25f, 0f);
         board.addToSelected(number);
         number.GetComponent<Number>().selected = true;
+        FindObjectOfType<AudioManager>().Play("Pop_SFX");
     }
 
     void InitializeBoard()

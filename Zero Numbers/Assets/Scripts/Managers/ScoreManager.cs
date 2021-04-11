@@ -11,4 +11,14 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = (int.Parse(scoreText.text) + score).ToString();
     }
 
+    public void setScore(int score)
+    {
+        scoreText.text = score.ToString();
+    }
+
+    public int getScore()
+    {
+        return int.Parse(scoreText.text);
+    }
+
 }
