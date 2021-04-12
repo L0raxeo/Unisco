@@ -14,7 +14,6 @@ public class LetsGoButton : MonoBehaviour
 
         if (coins < 50)
         {
-            GameObject.Find("Moves UI").SetActive(false);
             GameObject.Find("Shade").GetComponent<Animator>().SetBool("isSolid", true);
             storeUI.SetActive(true);
         }
@@ -23,10 +22,10 @@ public class LetsGoButton : MonoBehaviour
             GameObject.FindObjectOfType<SaveManager>().state.coins -= 50;
             GameObject.FindObjectOfType<SaveManager>().Save();
             GameObject.FindObjectOfType<CoinsManager>().UpdateCoins();
-            GameObject.Find("Moves UI").SetActive(false);
             GameObject.FindObjectOfType<ShadeController>().ToClear();
             GameObject.Find("Turns").GetComponent<TMP_Text>().text = (int.Parse(GameObject.Find("Turns").GetComponent<TMP_Text>().text) + 35).ToString();
         }
+        GameObject.Find("Moves UI").SetActive(false);
     }
 
 }

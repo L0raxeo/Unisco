@@ -11,13 +11,21 @@ public class BannerAdsManager : MonoBehaviour
 
     IEnumerator Start()
     {
-        Advertisement.Initialize(gameID, testMode);
+        if (GameObject.FindObjectOfType<SaveManager>().state.ads)
+        {
+            Advertisement.Initialize(gameID, testMode);
 
-        while (!Advertisement.IsReady(bottomPlacementID))
-            yield return null;
+            while (!Advertisement.IsReady(bottomPlacementID))
+                yield return null;
 
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        Advertisement.Banner.Show(bottomPlacementID);
+            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+            Advertisement.Banner.Show(bottomPlacementID);
+        }
+    }
+
+    public void RemoveBannerAds()
+    {
+        Advertisement.Banner.Hide();
     }
 
 }

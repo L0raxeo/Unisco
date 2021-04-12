@@ -20,10 +20,11 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
-
-
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+        if (GameObject.FindObjectOfType<SaveManager>().state.sfx)
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            s.source.Play();
+        }
     }
 
 }

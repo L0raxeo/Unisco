@@ -14,7 +14,7 @@ public class AddMovesButton : MonoBehaviour
     public void OnClick()
     {
         FindObjectOfType<AudioManager>().Play("Blip_SFX");
-        GameObject.Find("Shade").GetComponent<Animator>().SetBool("isSolid", true);
+        GameObject.FindObjectOfType<ShadeController>().ToSolid();
         movesUI.SetActive(true);
     }
 

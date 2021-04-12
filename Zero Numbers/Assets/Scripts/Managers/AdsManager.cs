@@ -23,9 +23,9 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
-        Debug.Log(placementId);
-        if (showResult == ShowResult.Finished && !levelManager.watchedAd)
+        if (placementId == "rewardedVideo" && showResult == ShowResult.Finished && !levelManager.watchedAd)
         {
+            Debug.Log(placementId);
             FindObjectOfType<AudioManager>().Play("Blip_SFX");
             GameObject.FindObjectOfType<ShadeController>().ToClear();
             levelManager.inGame = true;
