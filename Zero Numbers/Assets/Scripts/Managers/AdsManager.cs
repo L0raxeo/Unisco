@@ -23,6 +23,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
+        Debug.Log(placementId);
         if (showResult == ShowResult.Finished && !levelManager.watchedAd)
         {
             FindObjectOfType<AudioManager>().Play("Blip_SFX");
