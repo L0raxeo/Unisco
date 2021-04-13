@@ -6635,7 +6635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: com.lowkey.lorcan.unisco.buy50coins
   buttonType: 0
-  consumePurchase: 0
+  consumePurchase: 1
   onPurchaseComplete:
     m_PersistentCalls:
       m_Calls:
